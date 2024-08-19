@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SampleClass</class>
+ <widget class="QMainWindow" name="SampleClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QWebView2 Sample (https://github.com/winsoft666/)</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="pushButtonBack">
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonForward">
+        <property name="text">
+         <string>Forward</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonReload">
+        <property name="text">
+         <string>Reload</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonStop">
+        <property name="text">
+         <string>Stop</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditUrl">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>22</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonGo">
+        <property name="text">
+         <string>GO</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QWebView2" name="widgetWebView2" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionOpenDevTools"/>
+    <addaction name="actionMute"/>
+    <addaction name="actionNewWindow"/>
+    <addaction name="actionShowWebView2RuntimeVersion"/>
+    <addaction name="actionShowPerformanceInformation"/>
+    <addaction name="actionCrashBrowserProcess"/>
+    <addaction name="actionCrashRenderProcess"/>
+   </widget>
+   <widget class="QMenu" name="menuScript">
+    <property name="title">
+     <string>Script</string>
+    </property>
+    <addaction name="actionOpenScriptCallNativeSmaple"/>
+    <addaction name="actionOpenNonClientRegionSupportSample"/>
+    <addaction name="actionOpenFullscreenSample"/>
+    <addaction name="separator"/>
+    <addaction name="actionPostStringToWeb"/>
+    <addaction name="actionPostJSONToWeb"/>
+    <addaction name="actionExecuteScriptWithResult"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions_2">
+    <property name="title">
+     <string>Cookie</string>
+    </property>
+    <addaction name="actionQueryAllCookies"/>
+    <addaction name="actionClearCookies"/>
+    <addaction name="actionAddTestCookie"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAboutQt"/>
+    <addaction name="actionAboutSourceCode"/>
+    <addaction name="actionQWebView2Version"/>
+   </widget>
+   <addaction name="menuOptions"/>
+   <addaction name="menuScript"/>
+   <addaction name="menuOptions_2"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpenDevTools">
+   <property name="text">
+    <string>Open DevTools    (Ctrl + F12)</string>
+   </property>
+  </action>
+  <action name="actionContextMenus">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Context Menus</string>
+   </property>
+  </action>
+  <action name="actionNew_Window">
+   <property name="text">
+    <string>New Window</string>
+   </property>
+  </action>
+  <action name="actionOpenScriptCallNativeSmaple">
+   <property name="text">
+    <string>Open ScriptCallNative Smaple</string>
+   </property>
+  </action>
+  <action name="actionOpenNonClientRegionSupportSample">
+   <property name="text">
+    <string>Open NonClientRegionSupport Sample</string>
+   </property>
+  </action>
+  <action name="actionCleanupUserDataFolder">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Cleanup User Data Folder</string>
+   </property>
+  </action>
+  <action name="actionNewWindow">
+   <property name="text">
+    <string>Open Current URL With New Window</string>
+   </property>
+  </action>
+  <action name="actionShowWebView2RuntimeVersion">
+   <property name="text">
+    <string>Show WebView2 Runtime Version</string>
+   </property>
+  </action>
+  <action name="actionMute">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Mute</string>
+   </property>
+  </action>
+  <action name="actionOpenFullscreenSample">
+   <property name="text">
+    <string>Open Fullscreen Sample</string>
+   </property>
+  </action>
+  <action name="actionPostStringToWeb">
+   <property name="text">
+    <string>Post String to Web</string>
+   </property>
+  </action>
+  <action name="actionPostJSONToWeb">
+   <property name="text">
+    <string>Post JSON to Web</string>
+   </property>
+  </action>
+  <action name="actionExecuteScriptWithResult">
+   <property name="text">
+    <string>Execute Script with Result</string>
+   </property>
+  </action>
+  <action name="actionAboutQt">
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionQueryAllCookies">
+   <property name="text">
+    <string>Query All Cookies</string>
+   </property>
+  </action>
+  <action name="actionClearCookies">
+   <property name="text">
+    <string>Clear Cookies</string>
+   </property>
+  </action>
+  <action name="actionAddTestCookie">
+   <property name="text">
+    <string>Add Test Cookie</string>
+   </property>
+  </action>
+  <action name="actionShowPerformanceInformation">
+   <property name="text">
+    <string>Show Performance Information</string>
+   </property>
+  </action>
+  <action name="actionCrashBrowserProcess">
+   <property name="text">
+    <string>Crash Browser Process</string>
+   </property>
+  </action>
+  <action name="actionCrashRenderProcess">
+   <property name="text">
+    <string>Crash Render Process</string>
+   </property>
+  </action>
+  <action name="actionAboutSourceCode">
+   <property name="text">
+    <string>About Source Code</string>
+   </property>
+  </action>
+  <action name="actionQWebView2Version">
+   <property name="text">
+    <string>QWebView2 Version</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView2</class>
+   <extends>QWidget</extends>
+   <header>qwebview2.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="Sample.qrc"/>
+ </resources>
+ <connections/>
+</ui>

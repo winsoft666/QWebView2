@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Native Call JavaScript Sample</title>
+</head>
+<body>
+    <h1>Native Call JavaScript Sample</h1>
+
+    <script>
+        window.chrome.webview.addEventListener("message", event => {
+            alert(`Recevie message from native code: ${JSON.stringify(event.data)}`);
+        });
+
+        function add(a, b, c) {
+            return a + b + c;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fullscreen Sample</title>
+</head>
+<body>
+    <div id="fullscreen" style="color:blue; background-color: antiquewhite;">
+        <h1>Fullscreen Sample</h1>
+        <button id="btnFullscreen">Enter Fullscreen</button>
+    </div>
+
+    <script>
+        document.getElementById("btnFullscreen").addEventListener("click", () => {
+            let elem = document.getElementById("fullscreen");
+            
+            if(document.fullscreenElement) {
+                document.getElementById("btnFullscreen").innerHTML = "Enter Fullscreen";
+                document.exitFullscreen();
+            }
+            else {
+                document.getElementById("btnFullscreen").innerHTML = "Exit Fullscreen";
+                elem.requestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
