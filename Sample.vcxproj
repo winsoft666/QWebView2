@@ -111,14 +111,15 @@
       <AdditionalIncludeDirectories>./include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>QWebView2_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>.\lib\QWebView2_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutDir)asserts" (mkdir "$(OutDir)asserts")
 xcopy ".\asserts\*.*" "$(OutDir)asserts" /Y /E
-xcopy ".\QWebView2_d.dll" "$(OutDir)" /Y
-xcopy ".\QWebView2.tlb" "$(OutDir)" /Y
+xcopy ".\lib\QWebView2_d.dll" "$(OutDir)" /Y
+xcopy ".\lib\QWebView2.tlb" "$(OutDir)" /Y
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -128,14 +129,15 @@ xcopy ".\QWebView2.tlb" "$(OutDir)" /Y
       <AdditionalIncludeDirectories>./include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>QWebView2_x64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>.\lib\QWebView2_x64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutDir)asserts" (mkdir "$(OutDir)asserts")
 xcopy ".\asserts\*.*" "$(OutDir)asserts" /Y /E
-xcopy ".\QWebView2_x64d.dll" "$(OutDir)" /Y
-xcopy ".\QWebView2.tlb" "$(OutDir)" /Y</Command>
+xcopy ".\lib\QWebView2_x64d.dll" "$(OutDir)" /Y
+xcopy ".\lib\QWebView2.tlb" "$(OutDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -143,14 +145,15 @@ xcopy ".\QWebView2.tlb" "$(OutDir)" /Y</Command>
       <AdditionalIncludeDirectories>./include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>QWebView2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>.\lib\QWebView2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutDir)asserts" (mkdir "$(OutDir)asserts")
 xcopy ".\asserts\*.*" "$(OutDir)asserts" /Y /E
-xcopy ".\QWebView2.dll" "$(OutDir)" /Y
-xcopy ".\QWebView2.tlb" "$(OutDir)" /Y</Command>
+xcopy ".\lib\QWebView2.dll" "$(OutDir)" /Y
+xcopy ".\lib\QWebView2.tlb" "$(OutDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -158,14 +161,15 @@ xcopy ".\QWebView2.tlb" "$(OutDir)" /Y</Command>
       <AdditionalIncludeDirectories>./include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>QWebView2_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>.\lib\QWebView2_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutDir)asserts" (mkdir "$(OutDir)asserts")
 xcopy ".\asserts\*.*" "$(OutDir)asserts" /Y /E
-xcopy ".\QWebView2_x64.dll" "$(OutDir)" /Y
-xcopy ".\QWebView2.tlb" "$(OutDir)" /Y</Command>
+xcopy ".\lib\QWebView2_x64.dll" "$(OutDir)" /Y
+xcopy ".\lib\QWebView2.tlb" "$(OutDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
