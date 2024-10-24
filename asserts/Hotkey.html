@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotkey Sample</title>
+</head>
+
+<body>
+  Keydown:<span id="keycode"></span>
+</body>
+
+<script>
+  var CODE_CONTROL = [
+    "Shift",
+    "ShiftLeft",
+    "ShiftRight",
+    "Control",
+    "ControlLeft",
+    "ControlRight",
+    "Alt",
+    "AltLeft",
+    "AltRight",
+  ];
+  var FromKeyCode = {
+    96: "数字键盘0",
+    97: "数字键盘1",
+    98: "数字键盘2",
+    99: "数字键盘3",
+    100: "数字键盘4",
+    101: "数字键盘5",
+    102: "数字键盘6",
+    103: "数字键盘7",
+    104: "数字键盘8",
+    105: "数字键盘9",
+    106: "*",
+    107: "+",
+    108: "Enter",
+    109: "-",
+    110: ".",
+    111: "/",
+    112: "F1",
+    113: "F2",
+    114: "F3",
+    115: "F4",
+    116: "F5",
+    117: "F6",
+    118: "F7",
+    119: "F8",
+    120: "F9",
+    121: "F10",
+    122: "F11",
+    123: "F12",
+    8: "BackSpace",
+    9: "Tab",
+    12: "Clear",
+    13: "数字键盘Enter",
+    16: "SHIFT",
+    17: "CTRL",
+    18: "ALT",
+    20: "Cape lock",
+    27: "Esc",
+    32: "Spacebar",
+    33: "Page Up",
+    34: "Page Down",
+    35: "End",
+    36: "Home",
+    37: "←",
+    38: "↑",
+    39: "→",
+    40: "↓",
+    45: "Insert",
+    46: "Delete",
+    144: "Num Lock",
+    186: ";:",
+    187: "=+",
+    188: ",<",
+    189: "-_",
+    190: ".>",
+    191: "/?",
+    192: "`~",
+    219: "[{",
+    220: "|",
+    221: "]}",
+    222: "'\"",
+    175: "音量加",
+    174: "音量减",
+    179: "停止",
+    173: "静音",
+    172: "浏览器",
+    180: "邮件",
+    170: "搜索",
+    171: "收藏",
+  }
+  window.onload = function () {
+
+    var body = document.getElementsByTagName('body')
+    body[0].onkeydown = function (e) {
+      handleKeydown(e)
+    }
+  }
+
+  var canFromCode = []
+  var abcArr = Array.from({ length: 26 }, function (_v, k) { return k + 65 })
+  var numArr = Array.from({ length: 10 }, function (_v, k) { return k + 48 });
+  for (var i = 0; i < abcArr.length; i++) {
+    canFromCode.push(abcArr[i])
+  }
+  for (var i = 0; i < numArr.length; i++) {
+    canFromCode.push(numArr[i])
+  }
+
+
+  function StringFromCode(code) {
+    var index = -1
+    for (var i = 0; i < canFromCode.length; i++) {
+      if (canFromCode[i] == code) {
+        index = i
+      }
+    }
+
+    if (FromKeyCode[code]) {
+      return FromKeyCode[code];
+    } else if (index > -1) {
+      return String.fromCharCode(code).toUpperCase();
+    }
+    return code;
+  }
+
+  function handleKeydown(e) {
+    e.preventDefault();
+    var altKey = e.altKey, ctrlKey = e.ctrlKey, shiftKey = e.shiftKey, key = e.key, keyCode = e.keyCode;
+    var controlArr = [
+      { key: ctrlKey, code: 17 },
+      { key: shiftKey, code: 16 },
+      { key: altKey, code: 18 },
+    ];
+    if (!CODE_CONTROL.includes(key)) {
+      var controlKey = [];
+      for (var i = 0; i < controlArr.length; i++) {
+        if (controlArr[i].key) {
+          controlKey.push(controlArr[i].code)
+        }
+      }
+      if (keyCode) {
+        controlKey.push(keyCode);
+      }
+      if (controlKey.length > 0) {
+        // 快捷键key值
+        console.log(controlKey)
+
+        var keyHtml = []
+        for (var i = 0; i < controlKey.length; i++) {
+          keyHtml.push(StringFromCode(controlKey[i]))
+
+        }
+
+        var showEl = document.getElementById('keycode')
+        showEl.innerHTML = keyHtml.join('+')
+        console.log(showEl, keyHtml.join('+'))
+      }
+    }
+  };
+</script>
+
+</html>

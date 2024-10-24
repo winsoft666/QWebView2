@@ -41,9 +41,12 @@ class QWEBVIEW2_EXPORT QWebView2 : public QWidget {
 
     HRESULT postJSONToWeb(const QString& strJSON);
 
-    // Require ICoreWebView2_21 that introduced with WebView2 1.0.2277.86
+    // Require ICoreWebView2_21 that introduced with WebView2 SDK 1.0.2277.86
+    // Which version of the runtime supports this version of the SDK, please refer to https://learn.microsoft.com/en-us/microsoft-edge/webview2/release-notes
     HRESULT executeScriptWithResult(const QString& s, ScriptResultCallback cb);
 
+    // Require ICoreWebView2Settings9 that introduced with WebView2 1.0.2420.47
+    // Which version of the runtime supports this version of the SDK, please refer to https://learn.microsoft.com/en-us/microsoft-edge/webview2/release-notes
     void setNonClientRegionSupportEnabled(bool enabled);
 
     void setUserDataFolder(const QString& folder);
@@ -53,6 +56,10 @@ class QWEBVIEW2_EXPORT QWebView2 : public QWidget {
     bool isMute() const;
 
     void setMute(bool mute);
+
+    void setBuiltInErrorPageEnabled(bool enabled);
+
+    bool isBuiltInErrorPageEnabled();
 
     void queryCookies(const QString& uri, QueryCookieCallback cb);
 
@@ -75,7 +82,7 @@ class QWEBVIEW2_EXPORT QWebView2 : public QWidget {
 
     // errStatus: convert COREWEBVIEW2_WEB_ERROR_STATUS enum value to string.
     //
-    void loadUrlFinished(bool success, QString url, QString errStatus);
+    void loadUrlFinished(bool success, QString url, bool isCatastrophic, QString errStatus);
 
     void fullScreenChanged(bool fullscreen);
 

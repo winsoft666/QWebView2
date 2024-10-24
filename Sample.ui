@@ -103,7 +103,6 @@
     </property>
     <addaction name="actionOpenScriptCallNativeSmaple"/>
     <addaction name="actionOpenNonClientRegionSupportSample"/>
-    <addaction name="actionOpenFullscreenSample"/>
     <addaction name="separator"/>
     <addaction name="actionPostStringToWeb"/>
     <addaction name="actionPostJSONToWeb"/>
@@ -125,8 +124,17 @@
     <addaction name="actionAboutSourceCode"/>
     <addaction name="actionQWebView2Version"/>
    </widget>
+   <widget class="QMenu" name="menuSample_Pages">
+    <property name="title">
+     <string>Sample Pages</string>
+    </property>
+    <addaction name="actionOpenMP4Sample"/>
+    <addaction name="actionOpenFullscreenSample"/>
+    <addaction name="actionOpenHotkeyListenSample"/>
+   </widget>
    <addaction name="menuOptions"/>
    <addaction name="menuScript"/>
+   <addaction name="menuSample_Pages"/>
    <addaction name="menuOptions_2"/>
    <addaction name="menuAbout"/>
   </widget>
@@ -256,6 +264,16 @@
   <action name="actionQWebView2Version">
    <property name="text">
     <string>QWebView2 Version</string>
+   </property>
+  </action>
+  <action name="actionOpenMP4Sample">
+   <property name="text">
+    <string>Open MP4 Sample</string>
+   </property>
+  </action>
+  <action name="actionOpenHotkeyListenSample">
+   <property name="text">
+    <string>Open Hotkey Listen Sample</string>
    </property>
   </action>
  </widget>

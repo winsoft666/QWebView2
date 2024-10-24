@@ -12,12 +12,18 @@ Sample::Sample(QWidget* parent) :
         ui.widgetWebView2->openDevToolsWindow();
     });
 
+    connect(ui.actionOpenMP4Sample, &QAction::triggered, this, [this]() {
+        setUrl("http://asserts.qwebview2.com/Mp4.html");
+    });
+
     connect(ui.actionNewWindow, &QAction::triggered, this, [this]() {
         WebView2Options opts;
-        opts.initialUrl = ui.lineEditUrl->text().trimmed();
+        opts.builtInErrorPageEnabled = false;
 
         QWebView2* view = new QWebView2(opts);
+        view->setVirtualHostNameAndFolder({{"asserts.qwebview2.com", "asserts"}});
         view->show();
+        view->setUrl(ui.lineEditUrl->text().trimmed());
     });
 
     connect(ui.actionShowWebView2RuntimeVersion, &QAction::triggered, this, [this]() {
@@ -41,6 +47,10 @@ Sample::Sample(QWidget* parent) :
 
     connect(ui.actionCrashRenderProcess, &QAction::triggered, this, [this]() {
         ui.widgetWebView2->crashRenderProcess();
+    });
+
+    connect(ui.actionOpenHotkeyListenSample, &QAction::triggered, this, [this]() {
+        setUrl("http://asserts.qwebview2.com/Hotkey.html");
     });
 
     connect(ui.actionOpenScriptCallNativeSmaple, &QAction::triggered, this, [this]() {
@@ -196,7 +206,7 @@ Sample::Sample(QWidget* parent) :
         ui.pushButtonStop->setEnabled(true);
     });
 
-    connect(ui.widgetWebView2, &QWebView2::loadUrlFinished, this, [this](bool success, QString url, QString errStatus) {
+    connect(ui.widgetWebView2, &QWebView2::loadUrlFinished, this, [this](bool success, QString url, bool isCatastrophic, QString errStatus) {
         ui.pushButtonReload->setEnabled(true);
         ui.pushButtonStop->setEnabled(false);
 
@@ -205,8 +215,7 @@ Sample::Sample(QWidget* parent) :
         }
         else {
             qDebug() << "Load" << url << "failed, errorStatus =" << errStatus;
-            if (errStatus != "COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED" &&
-                errStatus != "COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED") {
+            if (isCatastrophic) {
                 QMessageBox::critical(this, "Error", QString("Load url failed!\nurl = %1\nerrorStatus = %2").arg(url).arg(errStatus));
             }
         }
@@ -224,12 +233,12 @@ Sample::Sample(QWidget* parent) :
     });
 
     connect(ui.widgetWebView2, &QWebView2::acceleratorKeyPressed, this, [this](unsigned int key) {
-        if (GetKeyState(VK_CONTROL) < 0) {
+        if (key == VK_F12) {
+            ui.widgetWebView2->openDevToolsWindow();
+        }
+        else if (GetKeyState(VK_CONTROL) < 0) {
             if (key == 'R') {
                 ui.widgetWebView2->reload();
-            }
-            else if (key == VK_F12) {
-                ui.widgetWebView2->openDevToolsWindow();
             }
         }
     });

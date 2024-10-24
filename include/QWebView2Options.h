@@ -64,6 +64,7 @@ struct WebView2Cookie {
 };
 
 struct WebView2Options {
+    bool mute = false;
     bool AADSSOEnabled = false;  // AAD single sign on
     bool useOSRegion = false;
     bool exclusiveUserDataFolderAccess = false;
@@ -74,6 +75,7 @@ struct WebView2Options {
     bool cleanupUserDataFolderEnabled = false;  // TODO
     bool autoReinitializeOnProcessCrashed = true;
     bool autoReloadOnRendererCrashed = true;
+    bool builtInErrorPageEnabled = true;
 
     CreationMode creationMode = CreationMode::Windowed;
     QString initialUrl;
