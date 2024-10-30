@@ -8,6 +8,7 @@
 #include <windows.h>
 #include <string>
 #include <functional>
+#include <QColor>
 #include <QVariant>
 #include "QWebView2Version.h"
 
@@ -85,6 +86,7 @@ struct WebView2Options {
     QString profile;
     QString downloadPath;
     QString scriptLocale;
+    QColor backgroundColor;
 };
 
 typedef std::function<void(QVariant)> CallbackToScript;

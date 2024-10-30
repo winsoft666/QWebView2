@@ -93,7 +93,11 @@ class QWEBVIEW2_EXPORT QWebView2 : public QWidget {
     void childProcessCrashed(QString kind, QString reason, int exitCode, QString processDescription, QString failedModule);
 
    protected:
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+    bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override;
+#else
     bool nativeEvent(const QByteArray& eventType, void* message, long* result) override;
+#endif
 
    protected:
     QWebView2Impl* d_ = Q_NULLPTR;

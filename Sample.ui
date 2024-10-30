@@ -131,6 +131,7 @@
     <addaction name="actionOpenMP4Sample"/>
     <addaction name="actionOpenFullscreenSample"/>
     <addaction name="actionOpenHotkeyListenSample"/>
+    <addaction name="actionOpenTransparentTreeSample"/>
    </widget>
    <addaction name="menuOptions"/>
    <addaction name="menuScript"/>
@@ -274,6 +275,11 @@
   <action name="actionOpenHotkeyListenSample">
    <property name="text">
     <string>Open Hotkey Listen Sample</string>
+   </property>
+  </action>
+  <action name="actionOpenTransparentTreeSample">
+   <property name="text">
+    <string>Open Transparent Tree Sample</string>
    </property>
   </action>
  </widget>

@@ -65,6 +65,19 @@ Sample::Sample(QWidget* parent) :
         setUrl("http://asserts.qwebview2.com/Fullscreen.html");
     });
 
+    connect(ui.actionOpenTransparentTreeSample, &QAction::triggered, this, [this]() {
+        WebView2Options opts;
+        opts.backgroundColor = QColor(0, 0, 0, 0);
+
+        QWebView2* view = new QWebView2(opts);
+        view->setWindowFlag(Qt::FramelessWindowHint);
+        view->setObjectName("webview2");
+        view->setStyleSheet("#webview2 {background: transparent; border: none;}");
+        view->setVirtualHostNameAndFolder({{"asserts.qwebview2.com", "asserts"}});
+        view->show();
+        view->setUrl("http://asserts.qwebview2.com/TransparentTree.html");
+    });
+
     connect(ui.actionPostStringToWeb, &QAction::triggered, this, [this]() {
         gotoUrlAndDelayDo("http://asserts.qwebview2.com/NativeCallScript.html", [this]() {
             checkResult(ui.widgetWebView2->postStringToWeb(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
